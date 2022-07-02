@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body{text-align: center;}
+    </style>
+    <body>
+        <img src="{{ url_for('video_feed') }}">
+        <form action="{{ url_for('capture') }}" method="POST">
+            <input type="submit" value="Capture">
+        </form>
+    </body>
+</html>

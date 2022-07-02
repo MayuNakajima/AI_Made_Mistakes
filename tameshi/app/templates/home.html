@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }}>
+    </head>
+
+    <body>
+        <div id="Head">
+            <div class="white">AI made mistakes</div>
+        </div>
+
+        <div id="Left">
+            <h1>Real image</h1>
+            <img src="static\images\target.jpg" alt="target">
+        </div>
+
+        <div id="Right">
+            <h1>Fake image</h1>
+            <img src="static\images\target.jpg" alt="target">
+        </div>
+
+        <div id="message">
+            <h1>Find the difference and click on it.</h1>
+            <h1> {{remain}} difference{{s}} have remained.</h1>
+        </div>
+    </body>
+
+</html>
