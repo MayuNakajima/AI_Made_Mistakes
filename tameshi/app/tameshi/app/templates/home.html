@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }}>
+    </head>
+
+
+    <body>
+
+        <div id="Head">
+            <div class="white">AI made mistakes</div>
+        </div>
+
+        <div id="Left">
+            <h1>Real</h1>
+            <img src="static\images\original.jpg" alt="target">
+        </div>
+
+        <div id="Right">
+            <h1>Fake</h1>
+            <img src="static\images\changed.jpg" alt="target" onclick="check(event)">
+            
+            <script>
+                function check(event){
+                    var clickX = event.pageX - 835;
+	                var clickY = event.pageY - 150;
+                    
+                    //alert(clickX)
+                    
+                    const zahyo = {
+                        "x":clickX,
+                        "y":clickY
+                    };
+
+                    const zahyo_data = JSON.stringify(zahyo);
+
+                    fetch('/post',{
+                        method: 'POST',
+                        cache: 'no-cache',
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                        body: zahyo_data
+                    }).then(res => res.json())
+                }
+            </script>
+        </div>
+
+        <div id="message">
+            <form action="/check" method="POST">
+                <input type="submit" value="check">
+            </form>
+            <h1>Find the difference and click on it.</h1>
+            <h1> {{remain}} difference{{s}} have remained.</h1>
+        </div>
+    </body>
+
+</html>
